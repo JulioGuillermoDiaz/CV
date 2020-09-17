@@ -75,10 +75,13 @@
           				var fileReader = new FileReader(); 
           				fileReader.addEventListener('load', function(){ 
                				tecnologias = fileReader.result; 
-          			}); 
-          		fileReader.readAsText(file); 
+          				}); 
+          			fileReader.readAsText(file); 
       				}  
-    				} 
+				}
+				
+				console.log(tecnologias);
+
     			xhr.send(); 
 				$("#grid").kendoGrid({
 					dataSource: {
@@ -105,11 +108,10 @@
 					columns: [
 						{ field: "Anio", title: "Desde - hasta ", width: "230px" },
 						{ field: "Empresa", title: "Empresa",  width: "130px" },
-						{ field: "Posicion", title: "Posicion", width: "130px" }						]
+						{ field: "Posicion", title: "Posicion", width: "130px" }	]
 				});
 
 				$("#grid2").kendoGrid({
-
 					dataSource: {
 							data : tecnologias 
 									},
