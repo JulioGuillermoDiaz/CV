@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Julio Guillermo D&iacuteaz</title>
+  <meta name="author" content="Julio Diaz">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="HandheldFriendly" content="true">
+  <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+ <!--
+ <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Simonetta:400,900|Balthazar">
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <link rel="stylesheet" type="text/css" href="responsive.css">
+  -->
+ 
+  <base href="https://demos.telerik.com/kendo-ui/mediaplayer/index?_ga=2.200063022.1014493269.1599080690-2125667682.1599080690">
+   <style>html { font-size: 14px; font-family: Arial, Helvetica, sans-serif; }</style>
+  <title></title>
+  <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2020.2.617/styles/kendo.common.min.css" />
+  <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2020.2.617/styles/kendo.default.min.css" />
+  <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2020.2.617/styles/kendo.default.mobile.min.css" />
+  <script src="https://kendo.cdn.telerik.com/2020.2.617/js/jquery.min.js"></script>
+  <script src="https://kendo.cdn.telerik.com/2020.2.617/js/kendo.all.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+	<div id="w" itemscope itemtype="http://schema.org/Person">
+		<header class="clearfix">
+			<div id="info">			
+				<h1><span itemprop="name">Julio Guillermo D&iacuteaz</span></h1>
+				<h3><span itemprop="jobTitle">Tech Leader - Integra Software </span></h3>
+				<small itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+					<span itemprop="addressHome">Avda Carballo 580 </span>,
+				 	<span itemprop="addressLocality">Rosario</span>,
+					<span itemprop="addressRegion">Santa F&eacute</span>,
+				    <span itemprop="addressCountry">Argentina</span>
+                    <span itemprop="Phone"> Cel: +54 9 11 3185 1544</span>
+                    <span itemprop="Skype"> - Skype: juliogdiaz</span>
+                        	</small>
+					
+			</div>
+			
+		</header>
+		<div id="photo">
+			<img src="https://julioguillermodiaz.github.io/CV/images/CopaDavis2016.jpg" alt="Julio Diaz"  width="193" height="130" />
+			
+		</div>
+	  
+		<section id="profile">
+			<h2>Perfil</h2>
+			<p> Software Architect / Teach Leader: .Net, Java y Mobile. </p>
+			<p> Docente Programaci&oacuten Web en CILSA </p>
+			<p> Docente Java / OOP en Educacion IT </p>
+			
+		</section>
+
+		<script src="https://julioguillermodiaz.github.io/CV/trabajos.js"></script>
+
+		<div id="grid"></div>
+		
+			<script>
+				$(document).ready(function() {
+					$("#grid").kendoGrid({
+						dataSource: {
+							data: trabajos,
+							schema: {
+								model: {
+									fields: {
+										Anio: { type: "string" },
+										Empresa: { type: "string" },
+										Posicion: { type: "string" }
+									}
+								}
+							},
+							pageSize: 5
+						},
+						height: 200,
+						scrollable: true,
+						sortable: true,
+						filterable: true,
+						pageable: {
+							input: true,
+							numeric: false
+						},
+						columns: [
+							
+							{ field: "Anio", title: "Desde - hasta ", width: "230px" },
+							{ field: "Empresa", title: "Empresa",  width: "130px" },
+							{ field: "Posicion", title: "Posicion", width: "130px" }						]
+					});
+				});
+			</script>
+		
+		<div id="grid2"></div>
+		
+			<script>
+
+				$(document).ready(function() {
+			
+						// Consumir un WebService
+						const requestURL = 'https://julioguillermodiaz.github.io/CV/tecnologias.json';
+		    			const request = new XMLHttpRequest();
+    					request.open('GET', requestURL);
+    					request.responseType = 'json';
+    					request.send();
+
+		    			request.onload = function() {
+				        const tecnologias = request.response;}
+
+					$("#grid2").kendoGrid({
+						dataSource: {
+							data : tecnologias 
+			//			batch: true,
+            //    		transport: {
+            //        		read: {	url: 'https://julioguillermodiaz.github.io/CV/tecnologias.json',
+            //            			dataType: 'json' }
+									},
+							schema: {
+								model: {
+									fields: {
+										Anio: { type: "string" },
+										Tecnologia: { type: "string" }
+									}
+								}
+							},
+							pageSize: 5
+						},
+						height: 200,
+						scrollable: true,
+						sortable: true,
+						filterable: true,
+						pageable: {
+							input: true,
+							numeric: false
+						},
+						columns: [
+							{ field: "Anio", title: "Desde - hasta ", width: "30px" },
+							{ field: "Tecnologia", title: "Tecnologias", width: "230px" }						
+						]
+					});
+				});
+			</script>
+		
+
+		
+		<section id="education">
+			<h2>Educaci&oacuten</h2>
+			<p><span itemprop="alumniOf">Universidad Tecnol&oacutegica Nacional</span> - Analista de Sistemas</p>
+		</section>
+		
+		
+		<section id="Curriculum Vitae">
+			<h2>Curriculum Vitae</h2>
+                        
+                            <p itemscope itemtype="http://schema.org/Article">
+                            <span itemprop="name">
+                            <a href="cvs/JulioGuillermoDiaz-CV-2020.pdf" itemprop="url" > Descargar Pdf </a></span> </p>
+		</section>
+
+		<section id="Contacto">
+			<h2>Contacto</h2>
+                        
+                            <p itemscope itemtype="http://schema.org/Article">
+                            <span itemprop="name">
+							<a href="https://wa.me/541131851544" itemprop="url" > <img src="https://julioguillermodiaz.github.io/CV/logos/wa.png" width="193" height="130"> </a>
+							<a href="mailto:juliogdiaz@protonmail.com"> <img src="https://julioguillermodiaz.github.io/CV/logos/proton.png" width="193" height="130"> </a>
+							<a href="https://www.linkedin.com/in/julio-diaz-92502b57"> <img src="https://julioguillermodiaz.github.io/CV/logos/linkedin.png" width="193" height="130"> </a></span>   
+							
+						</p>
+                        
+		</section>
+
+		<div id="example">
+			<div class="demo-section k-content wide" style="max-width: 644px;">
+				<div id="mediaplayer" style="height:360px"></div>
+			</div>
+			<script type="text/javascript">
+				$(document).ready(function () {
+		
+					$("#mediaplayer").kendoMediaPlayer({
+						autoPlay: true,
+						navigatable: true,
+						media: {
+							title: "Presentarme",
+							source: "https://youtu.be/p8vpY9Z6q3E"
+						}
+					});
+				});
+			</script>
+		</div>
+
+		<section id="Alumnos">
+			<h2>Front-End developers que recomiendo: </h2>
+                        
+                            <p itemscope itemtype="http://schema.org/Article">
+                            <span itemprop="name">
+								<small><a href="https://aixacobos.github.io/cv/" itemprop="url" > Cobos Aixa  </a></small>		
+								<small><a href="https://gomezfacundo.github.io/cv/" itemprop="url" > Gomez Facundo </a></small>	
+								<small> <a href="https://esty-tech.github.io/Esterline/" itemprop="url" >Louis Jeune Esterline </a></small>
+								<small> <a href="https://diegorach.github.io/Resume-2020/" itemprop="url" >Rach Diego </a></small>
+							</span>	
+							</p>
+                        
+		</section>
+
+
+	
+	</div>
+</body>
+</html>
