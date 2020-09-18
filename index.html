@@ -97,26 +97,21 @@
 		
 		<div id="grid2"></div>
 		
-		<script>
-
-			$(document).ready(function() {
-				$("#grid2").kendoGrid({
-					dataSource: 
-					{
-						batch: true,
-               			transport: {
-								read: {	url: 'https://julioguillermodiaz.github.io/CV/tecnologias.json',
-									dataType: 'json' } 
-									},
-						schema: { 
-							model: {
-										fields: {
-											  Anio: { type: "string" },
-										Tecnologia: { type: "string" }			
-												 }
-								    }
-								},
-						pageSize: 5,
+			<script>
+				$(document).ready(function() {
+					$("#grid2").kendoGrid({
+						dataSource: {
+							data: trabajos,
+							schema: {
+								model: {
+									fields: {
+										Anio: { type: "string" },
+										Tecnologia: { type: "string" }
+									}
+								}
+							},
+							pageSize: 5
+						},
 						height: 200,
 						scrollable: true,
 						sortable: true,
@@ -124,17 +119,15 @@
 						pageable: {
 							input: true,
 							numeric: false
-								  },
-						columns: 	[
-							{ field: "Anio", title: "Desde - hasta ", width: "30px" },
-							{ field: "Tecnologia", title: "Tecnologias", width: "230px" }						
-							 		]
-					}
-				})
-			})
-		</script>
+						},
+						columns: [
+							
+							{ field: "Anio", title: "Desde - hasta ", width: "230px" },
+							{ field: "Tecnologia", title: "Tecnologia", width: "130px" }						]
+					});
+				});
+			</script>
 		
-
 		
 		<section id="education">
 			<h2>Educaci&oacuten</h2>
