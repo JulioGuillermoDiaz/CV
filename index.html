@@ -61,59 +61,65 @@
 		<script src="https://julioguillermodiaz.github.io/CV/trabajos.js"></script>
 
 		<div id="grid"></div>
+		
+			<script>
+				$(document).ready(function() {
+					$("#grid").kendoGrid({
+						dataSource: {
+							data: trabajos,
+							schema: {
+								model: {
+									fields: {
+										Anio: { type: "string" },
+										Empresa: { type: "string" },
+										Posicion: { type: "string" }
+									}
+								}
+							},
+							pageSize: 5
+						},
+						height: 200,
+						scrollable: true,
+						sortable: true,
+						filterable: true,
+						pageable: {
+							input: true,
+							numeric: false
+						},
+						columns: [
+							
+							{ field: "Anio", title: "Desde - hasta ", width: "230px" },
+							{ field: "Empresa", title: "Empresa",  width: "130px" },
+							{ field: "Posicion", title: "Posicion", width: "130px" }						]
+					});
+				});
+			</script>
+		
 		<div id="grid2"></div>
 		
-		<script>
-			$(document).ready(function() {
-				var tecnologias;
-				var xhr = new XMLHttpRequest(); 
-    			xhr.open('GET', path, true); 
-    			xhr.responseType = 'json'; 
-    			xhr.onload = function(e) {  
-      				if (this.status == 200) { 
-          				var file = new File([this.response], 'temp'); 
-          				var fileReader = new FileReader(); 
-          				fileReader.addEventListener('load', function(){ 
-               				tecnologias = fileReader.result; 
-          				}); 
-          			fileReader.readAsText(file); 
-      				}  
-				}
-				
-				console.log(tecnologias);
+			<script>
 
-    			xhr.send(); 
-				$("#grid").kendoGrid({
-					dataSource: {
-						data: trabajos,
-						schema: {
-							model: {
-								fields: {
-									Anio: { type: "string" },
-									Empresa: { type: "string" },
-									Posicion: { type: "string" }
-								}
-							}
-						},
-						pageSize: 5
-					},
-					height: 200,
-					scrollable: true,
-					sortable: true,
-					filterable: true,
-					pageable: {
-						input: true,
-						numeric: false
-					},
-					columns: [
-						{ field: "Anio", title: "Desde - hasta ", width: "230px" },
-						{ field: "Empresa", title: "Empresa",  width: "130px" },
-						{ field: "Posicion", title: "Posicion", width: "130px" }	]
-				});
+				$(document).ready(function() {
+			
+						// Consumir un WebService
+						const requestURL = 'https://julioguillermodiaz.github.io/CV/tecnologias.json';
+		    			const request = new XMLHttpRequest();
+    					request.open('GET', requestURL);
+    					request.responseType = 'json';
+    					request.send();
 
-				$("#grid2").kendoGrid({
-					dataSource: {
+		    			request.onload = function() {
+						const tecnologias = request.response;}
+						
+						console.log(tecnologias);
+
+					$("#grid2").kendoGrid({
+						dataSource: {
 							data : tecnologias 
+			//			batch: true,
+            //    		transport: {
+            //        		read: {	url: 'https://julioguillermodiaz.github.io/CV/tecnologias.json',
+            //            			dataType: 'json' }
 									},
 							schema: {
 								model: {
@@ -138,7 +144,6 @@
 						]
 					});
 				});
-
 			</script>
 		
 
