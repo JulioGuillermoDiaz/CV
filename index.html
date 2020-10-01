@@ -124,39 +124,7 @@
                         
 		</section>
 
-		<div id="example">
-			<div class="demo-section k-content wide" style="max-width: 644px;">
-				<div id="mediaplayer" style="height:360px"></div>
-			</div>
-			<script type="text/javascript">
-				$(document).ready(function () {
-		
-					$("#mediaplayer").kendoMediaPlayer({
-						autoPlay: true,
-						navigatable: true,
-						media: {
-							title: "Presentarme",
-							source: "https://youtu.be/p8vpY9Z6q3E"
-						}
-					});
-				});
-			</script>
-		</div>
-
-		<section id="Alumnos">
-			<h2>Front-End developers que recomiendo: </h2>
-                        
-                            <p itemscope itemtype="http://schema.org/Article">
-                            <span itemprop="name">
-								<small><a href="https://aixacobos.github.io/cv/" itemprop="url" > Cobos Aixa  </a></small>		
-								<small><a href="https://gomezfacundo.github.io/cv/" itemprop="url" > Gomez Facundo </a></small>	
-								<small> <a href="https://esty-tech.github.io/Esterline/" itemprop="url" >Louis Jeune Esterline </a></small>
-								<small> <a href="https://diegorach.github.io/Resume-2020/" itemprop="url" >Rach Diego </a></small>
-							</span>	
-							</p>
-                        
-		</section>
-		
+	
 		<script>
 			$.getJSON( "ajax/test.json", function( data ) {
 			var items = [];
@@ -169,6 +137,7 @@
 			  html: items.join( "" )
 			}).appendTo( "body" );
 		  });
+		</script>  
 		
 
 	
