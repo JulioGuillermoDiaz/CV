@@ -21,6 +21,7 @@
   <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2020.2.617/styles/kendo.default.mobile.min.css" />
   <script src="https://kendo.cdn.telerik.com/2020.2.617/js/jquery.min.js"></script>
   <script src="https://kendo.cdn.telerik.com/2020.2.617/js/kendo.all.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
@@ -95,39 +96,6 @@
 				});
 			</script>
 		
-		<div id="grid2"></div>
-		
-			<script>
-				$(document).ready(function() {
-					$("#grid2").kendoGrid({
-						dataSource: {
-							data: trabajos,
-							schema: {
-								model: {
-									fields: {
-										Anio: { type: "string" },
-										Tecnologia: { type: "string" }
-									}
-								}
-							},
-							pageSize: 5
-						},
-						height: 200,
-						scrollable: true,
-						sortable: true,
-						filterable: true,
-						pageable: {
-							input: true,
-							numeric: false
-						},
-						columns: [
-							
-							{ field: "Anio", title: "Desde - hasta ", width: "230px" },
-							{ field: "Tecnologia", title: "Tecnologia", width: "130px" }						]
-					});
-				});
-			</script>
-		
 		
 		<section id="education">
 			<h2>Educaci&oacuten</h2>
@@ -188,7 +156,20 @@
 							</p>
                         
 		</section>
-
+		
+		<script>
+			$.getJSON( "ajax/test.json", function( data ) {
+			var items = [];
+			$.each( data, function( key, val ) {
+			  items.push( "<li id='" + key + "'>" + val + "</li>" );
+			});
+		   
+			$( "<ul/>", {
+			  "class": "my-new-list",
+			  html: items.join( "" )
+			}).appendTo( "body" );
+		  });
+		
 
 	
 	</div>
