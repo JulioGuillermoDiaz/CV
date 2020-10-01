@@ -1,6 +1,8 @@
 {
-  "one": "Comprar asado",
-  "two": "Comprar ensalada",
-  "three": "Little birds pitch by my doorstep",
-  "cuatro": "nuevo elemento"
+  "one": "HTML - CSS",
+  "two": "JavaScript",
+  "three": "GitHub - GitHub Desktop",
+  "cuatro": "Visual Studio Code",
+  "5": "JQuery",
+  "6": "Telerik - Kendo UI"
 }
