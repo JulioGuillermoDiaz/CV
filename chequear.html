@@ -19,14 +19,19 @@
 		<script>
            $.getJSON( "ajax/estado.json", function( data ) {
             var items = [];
+            var estado = "";
             $.each( data, function( key, val ) {
             items.push( "<li id='" + key + "'>" + val + "</li>" );
+                if (val=="EN-CONSTRUCCION") {
+                    estado = "EN-CONSTRUCCION";
+                }
             });
        
-            $( "<ul/>", {
-              "class": "my-new-list",
-               html: items.join( "" )
-            }).appendTo( "body" );
+            if (estado == "EN-CONSTRUCCION")
+            {
+                $( "<img src='images/enconstruccion.png'>" ).appendTo( "body" );
+
+            }
             });
 
 		</script>  
