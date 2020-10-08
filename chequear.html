@@ -16,6 +16,7 @@
  </head>
 
 <body>
+        
 		<script>
            $.getJSON( "ajax/estado.json", function( data ) {
             var items = [];
@@ -29,8 +30,12 @@
        
             if (estado == "EN-CONSTRUCCION")
             {
-                $( "<img src='images/enconstruccion.png'>" ).appendTo( "body" );
+                $( "<img src='images/construyendo.png'>" ).appendTo( "body" );
 
+            }
+            else
+            {
+                $( "<a href src='juliodiaz.html'> INGRESAR </a>" ).appendTo( "body" );
             }
             });
 
