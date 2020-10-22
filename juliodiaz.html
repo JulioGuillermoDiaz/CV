@@ -128,7 +128,25 @@
 			<h2>Colegas que recomiendo...</h2>
                         
 		</section>
-	
+
+		<script>
+			// LEER COLEGAS
+			$.getJSON( "https://julioguillermodiaz.github.io/CV/ajax/grupocilsa.json", function( data ) {
+			var colegas = [];
+			$.each( data, function( key, val ) {
+			  colegas.push( "<li id='" + key + "'> " + val + "</li>" );
+			});
+		   
+			$( "<ul/>", {
+			  "class": "my-new-list",
+			  html: colegas.join( "" )
+			}).appendTo( "body" );
+		  });
+
+		</script>
+
+
+
 		<script>
 			// LEER TECNOLOGIAS	
 			$.getJSON( "https://julioguillermodiaz.github.io/CV/ajax/test.json", function( data ) {
@@ -144,21 +162,6 @@
 		  });
 		</script>  
 		
-		<script>
-			// LEER COLEGAS
-			$.getJSON( "https://julioguillermodiaz.github.io/CV/ajax/grupocilsa.json", function( data ) {
-			var colegas = [];
-			$.each( data, function( key, val ) {
-			  colegas.push( "<li id='" + key + "'>" + val + "</li>" );
-			});
-		   
-			$( "<ul/>", {
-			  "class": "my-new-list",
-			  html: colegas.join( "" )
-			}).appendTo( "body" );
-		  });
-
-		</script>
 
 	
 	</div>
