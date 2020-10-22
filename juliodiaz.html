@@ -126,6 +126,7 @@
 
 	
 		<script>
+			// LEER TECNOLOGIAS	
 			$.getJSON( "ajax/test.json", function( data ) {
 			var items = [];
 			$.each( data, function( key, val ) {
@@ -139,6 +140,21 @@
 		  });
 		</script>  
 		
+		<script>
+			// LEER COLEGAS
+			$.getJSON( "ajax/grupocilsa.json", function( data ) {
+			var colegas = [];
+			$.each( data, function( key, val ) {
+			  colegas.push( "<li id='" + key + "'>" + val + "</li>" );
+			});
+		   
+			$( "<ul/>", {
+			  "class": "my-new-list",
+			  html: colegas.join( "" )
+			}).appendTo( "body" );
+		  });
+
+		</script>
 
 	
 	</div>
