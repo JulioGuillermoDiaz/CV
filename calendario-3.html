@@ -23,11 +23,12 @@
           <div id="national-holidays"></div>
       </div>
       <script>
-        $(document).ready(function() {
-            var fechas = [];
-            fechas = llenarFechas(fechas);  // Leer el JSON de fechas ocupadas
-            console.log(fechas.length);
+          var fechas = [];
+          fechas = llenarFechas();  // Leer el JSON de fechas ocupadas
+          console.log(fechas.length);
 
+        $(document).ready(function() {
+          
             $("#national-holidays").kendoCalendar({
                 value: new Date("10/1/2020"),
                 dates: fechas,
