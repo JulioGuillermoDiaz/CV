@@ -55,10 +55,9 @@
             function llenaDates(date) {
                 $.getJSON( "https://julioguillermodiaz.github.io/CV/ajax/disponibilidades.json", function( data ) {
 			    dates = [];
-			    $.each( data, function( key, val ) {
-			        dates.push( val );
+			    $.each( data, function( key, val ) { dates.push(val)})
 			    })
-            }};
+            }
         });
       </script>
 </div>
