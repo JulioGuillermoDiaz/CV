@@ -26,13 +26,13 @@
         $(document).ready(function() {
             var fechas = [];
             fechas = llenarFechas(fechas);  // Leer el JSON de fechas ocupadas
+            console.log(fechas.length);
 
             $("#national-holidays").kendoCalendar({
                 value: new Date("10/1/2020"),
                 dates: fechas,
                 disableDates: function (date) {
                     var dates = $("#national-holidays").data("kendoCalendar").options.dates;
-                    console.log(dates);
                     if (date && compareDates(date, dates)) {
                         return true;
                     } else {
@@ -44,9 +44,6 @@
             function compareDates(date, dates) {
                 console.log(dates.length);
                 for (var i = 0; i < dates.length; i++) {
-                    console.log(dates[i]);
-                    console.log(i);
-                    
                     if (dates[i].getDate() == date.getDate() &&
                         dates[i].getMonth() == date.getMonth() &&
                         dates[i].getYear() == date.getYear()) {
