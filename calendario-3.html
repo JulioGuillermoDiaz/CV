@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <base href="https://demos.telerik.com/kendo-ui/calendar/disable-dates">
+    <style>html { font-size: 14px; font-family: Arial, Helvetica, sans-serif; }</style>
+    <title></title>
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2020.3.1021/styles/kendo.default-v2.min.css" />
+
+    <script src="https://kendo.cdn.telerik.com/2020.3.1021/js/jquery.min.js"></script>
+    
+    
+    <script src="https://kendo.cdn.telerik.com/2020.3.1021/js/kendo.all.min.js"></script>
+    
+    
+    <script src="https://kendo.cdn.telerik.com/<version>/js/messages/kendo.messages.es-AR.min.js"></script>
+
+</head>
+<body>
+    <div id="example">
+      <div class="demo-section k-content" style="text-align: center;">
+
+          <h4 style="margin-top:1em">Disponibilidad</h4>
+          <div id="national-holidays"></div>
+      </div>
+      <script>
+        $(document).ready(function() {
+            var fechas = [];
+            fechas = llenarFechas(fechas);  // Leer el JSON de fechas ocupadas
+
+            $("#national-holidays").kendoCalendar({
+                value: new Date("10/1/2020"),
+                dates: fechas,
+                disableDates: function (date) {
+                    var dates = $("#national-holidays").data("kendoCalendar").options.dates;
+                    console.log(dates);
+                    if (date && compareDates(date, dates)) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                }
+            });
+
+            function compareDates(date, dates) {
+                console.log(dates.length);
+                for (var i = 0; i < dates.length; i++) {
+                    console.log(dates[i]);
+                    console.log(i);
+                    
+                    if (dates[i].getDate() == date.getDate() &&
+                        dates[i].getMonth() == date.getMonth() &&
+                        dates[i].getYear() == date.getYear()) {
+                      return true
+                    }
+                }
+            };
+
+            function llenarFechas(fechas) {
+                $.getJSON( "https://julioguillermodiaz.github.io/CV/ajax/disponibilidades.json", function( data ) {
+			    fechas = [];
+			    $.each( data, function( key, val ) { fechas.push(new Date(val))})
+			    })
+            }
+        });
+      </script>
+</div>
+
+    
+
+</body>
+</html>
