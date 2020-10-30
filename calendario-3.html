@@ -21,18 +21,14 @@
           <div id="national-holidays"></div>
       </div>
       <script>
-          
-
+        var dtFechas = [];
+        
         $(document).ready(function() {
-            var dtFechas = [];
-            llenarFechas();  // Leer el JSON de fechas ocupadas
-            function llenarFechas() {
-                $.getJSON( "https://julioguillermodiaz.github.io/CV/ajax/disponibilidades.json", function( data ) {
-			    $.each( data, function( key, val ) { console.log(dtFechas.push(new Date(val))) })
-			    })
-                console.log(dtFechas.length);
-                return dtFechas;
-            }
+            $.getJSON( "https://julioguillermodiaz.github.io/CV/ajax/disponibilidades.json", function( data ) {
+		    $.each( data, function( key, val ) { console.log(dtFechas.push(new Date(val))) })
+			})
+            
+            console.log(dtFechas.length);
 
             $("#national-holidays").kendoCalendar({
                 value: new Date("10/1/2020"),
