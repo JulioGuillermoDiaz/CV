@@ -28,7 +28,6 @@
                 value: new Date("10/1/2020"),
                 dates: function () {
                 $.getJSON( "https://julioguillermodiaz.github.io/CV/ajax/disponibilidades.json", function( data ) {
-			    fechas = [];
 			    $.each( data, function( key, val ) { fechas.push(new Date(val))})
 			        })
                     return fechas;
