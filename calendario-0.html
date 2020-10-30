@@ -44,7 +44,8 @@
                 ],
                 disableDates: function (date) {
                     var dates = $("#national-holidays").data("kendoCalendar").options.dates;
-                    console.log(" elementos de dates: " dates.length);
+                    console.log(" elementos de dates: ");
+                    console.log(dates.length);
                     if (date && compareDates(date, dates)) {
                         return true;
                     } else {
