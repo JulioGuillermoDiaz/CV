@@ -32,6 +32,10 @@
                 $.getJSON( "https://julioguillermodiaz.github.io/CV/ajax/disponibilidades.json", function( data ) {
 			    $.each( data, function( key, val ) { dtFechas.push(new Date(val))})
 			    })
+                for (var iX = 0; iX < dtFechas.length; iX++)
+                    {
+                        console.log(dtFechas[i]);
+                    }
                 return dtFechas;
             }
 
