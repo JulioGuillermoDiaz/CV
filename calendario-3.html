@@ -24,11 +24,9 @@
           
 
         $(document).ready(function() {
-            var fechas = [];
-            fechas = llenarFechas();  // Leer el JSON de fechas ocupadas
-            console.log(fechas.length);
+            var dtFechas = [];
+            llenarFechas();  // Leer el JSON de fechas ocupadas
             function llenarFechas() {
-                var dtFechas = [];
                 $.getJSON( "https://julioguillermodiaz.github.io/CV/ajax/disponibilidades.json", function( data ) {
 			    $.each( data, function( key, val ) { dtFechas.push(new Date(val));
                     console.log(val);
@@ -43,7 +41,7 @@
 
             $("#national-holidays").kendoCalendar({
                 value: new Date("10/1/2020"),
-                dates: fechas,
+                dates: dtFechas,
                 disableDates: function (date) {
                     var dates = $("#national-holidays").data("kendoCalendar").options.dates;
                     if (date && compareDates(date, dates)) {
