@@ -21,18 +21,20 @@
           <div id="national-holidays"></div>
       </div>
       <script>
-          var fechas = [];
-          fechas = llenarFechas();  // Leer el JSON de fechas ocupadas
-          console.log(fechas.length);
-          function llenarFechas(fechas) {
+          
+
+        $(document).ready(function() {
+            var fechas = [];
+            fechas = llenarFechas();  // Leer el JSON de fechas ocupadas
+            console.log(fechas.length);
+            function llenarFechas(fechas) {
                 $.getJSON( "https://julioguillermodiaz.github.io/CV/ajax/disponibilidades.json", function( data ) {
 			    fechas = [];
 			    $.each( data, function( key, val ) { fechas.push(new Date(val))})
 			    })
+                return fechas;
             }
 
-        $(document).ready(function() {
-          
             $("#national-holidays").kendoCalendar({
                 value: new Date("10/1/2020"),
                 dates: fechas,
@@ -47,7 +49,6 @@
             });
 
             function compareDates(date, dates) {
-                console.log(dates.length);
                 for (var i = 0; i < dates.length; i++) {
                     if (dates[i].getDate() == date.getDate() &&
                         dates[i].getMonth() == date.getMonth() &&
