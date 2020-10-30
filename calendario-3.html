@@ -28,7 +28,7 @@
             fechas = llenarFechas();  // Leer el JSON de fechas ocupadas
             console.log(fechas.length);
             function llenarFechas() {
-                var dtFechas = {};
+                var dtFechas = [];
                 $.getJSON( "https://julioguillermodiaz.github.io/CV/ajax/disponibilidades.json", function( data ) {
 			    $.each( data, function( key, val ) { dtFechas.push(new Date(val))})
 			    })
