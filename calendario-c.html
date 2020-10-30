@@ -23,7 +23,7 @@
       </div>
       <script>
         $(document).ready(function() {
-
+            var dates; 
             $("#national-holidays").kendoCalendar({
                 value: new Date("10/1/2020"),
                 dates: function () {
@@ -33,7 +33,7 @@
                     return fechas;
                 },
                 disableDates: function (date) {
-                    var dates = $("#national-holidays").data("kendoCalendar").options.dates;
+                    dates = $("#national-holidays").data("kendoCalendar").options.dates;
                     console.log(" elementos de dates: ");
                     console.log(dates.length);
                     if (date && compareDates(date, dates)) {
