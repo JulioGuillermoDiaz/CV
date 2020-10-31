@@ -28,10 +28,10 @@
             $.getJSON( "https://julioguillermodiaz.github.io/CV/ajax/disponibilidades.json", function( data ) {
 		    $.each( data, function( key, val ) { console.log(dtFechas.push(new Date(val)));
                 fechas.push(val)})
-			})
-            console.log("Largo fechas" );
+                console.log("Largo fechas" );
+                console.log(fechas.length );
 
-            console.log(fechas.length );
+			})
 
             $("#national-holidays").kendoCalendar({
                 value: new Date("10/1/2020"),
