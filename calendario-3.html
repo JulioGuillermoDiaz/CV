@@ -22,14 +22,14 @@
       </div>
       <script>
         var dtFechas = [];
+        var fechas = [];
         
         $(document).ready(function() {
-            var fechas = [];
             $.getJSON( "https://julioguillermodiaz.github.io/CV/ajax/disponibilidades.json", function( data ) {
 		    $.each( data, function( key, val ) { console.log(dtFechas.push(new Date(val)));
                 fechas.push(val)})
                 console.log("Largo fechas" );
-                console.log(fechas.length );
+                console.log(dtFechas.length );
 
 			})
 
