@@ -38,6 +38,8 @@
             });
 
             function compareDates(date, dates) {
+                console.log(dates.length);
+                
                 for (var i = 0; i < dates.length; i++) {
                     if (dates[i].getDate() == date.getDate() &&
                         dates[i].getMonth() == date.getMonth() &&
@@ -51,7 +53,6 @@
                 var fechas = [];
                 $.getJSON( "https://julioguillermodiaz.github.io/CV/ajax/disponibilidades.json", function( data ) {
 		        $.each( data, function( key, val ) { fechas.push(new Date(val)) })
-                console.log(fechas.length);
                 return fechas;    
 			})}
  
