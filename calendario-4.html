@@ -33,7 +33,8 @@
                 value: new Date("10/1/2020"),
                 dates: LlenarFechas(),
                 disableDates: function (date) {
-                    var dates = $("#national-holidays").data("kendoCalendar").options.dates;
+                    // var dates = $("#national-holidays").data("kendoCalendar").options.dates;
+                    var dates = LlenarFechas();
                     if (date && compareDates(date, dates)) {
                         return true;
                     } else {
