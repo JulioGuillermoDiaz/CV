@@ -38,11 +38,11 @@
             });
 
             function compareDates(date, dates) {
-                fechas = LlenarFechas();                
-                for (var i = 0; i < fechas.length; i++) {
-                    if (fechas[i].getDate() == date.getDate() &&
-                        fechas[i].getMonth() == date.getMonth() &&
-                        fechas[i].getYear() == date.getYear()) {
+                var fecha = LlenarFechas();                
+                for (var i = 0; i < fecha.length; i++) {
+                    if (fecha[i].getDate() == date.getDate() &&
+                        fecha[i].getMonth() == date.getMonth() &&
+                        fecha[i].getYear() == date.getYear()) {
                       return true
                     }
                 }
