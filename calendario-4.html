@@ -57,12 +57,13 @@
             function LlenarFechas(){
                 var fechas = [];
                 var i = 0;
+                var j = 0;
                 $.getJSON( "https://julioguillermodiaz.github.io/CV/ajax/disponibilidades.json", function( data ) {
 		    //    $.each( data, function( key, val ) { fechas.push(new Date(val)); i ++ });
-                $.each( data, function( key, val ) { fechas.push(val); i = i + 1 });
-                console.log(i);
+                $.each( data, function( key, val ) { j = fechas.push(val)});
+                console.log(j);
                 
-                var dates = new Array(i);
+                var dates = new Array(j);
 
                 for (var i = 0 ; i < fechas.length; i ++ ) 
                     { dates[i] = new Date(fechas[i])  }    
