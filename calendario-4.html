@@ -26,9 +26,11 @@
 
             $("#national-holidays").kendoCalendar({
                 value: new Date("10/1/2020"),
-                dates: [],
+                dates: LlenarFechas(),
                 disableDates: function (date) {
-                    var dates = $("#national-holidays").data("kendoCalendar").options.dates;
+                    // var dates = $("#national-holidays").data("kendoCalendar").options.dates;
+                    var dates = LlenarFechas();
+                    
                     console.log(dates.length);
                     if (date && compareDates(date, dates)) {
                         return true;
@@ -39,7 +41,6 @@
             });
 
             function compareDates(date, dates) {
-                var a = LlenarFechas();                
                 for (var i = 0; i < fecha.length; i++) {
                     if (fecha[i].getDate() == date.getDate() &&
                         fecha[i].getMonth() == date.getMonth() &&
