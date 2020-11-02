@@ -58,7 +58,8 @@
             function LlenarFechas(){
                 var fechas = [];
                 $.getJSON( "https://julioguillermodiaz.github.io/CV/ajax/disponibilidades.json", function( data ) {
-		        $.each( data, function( key, val ) { fechas.push(new Date(val)) })
+		        $.each( data, function( key, val ) { fechas.push(new Date(val)) });
+                console.log(fechas);
                 return fechas;    
 			})}
  
