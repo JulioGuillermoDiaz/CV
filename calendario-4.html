@@ -31,8 +31,7 @@
                 value: new Date("10/1/2020"),
                 dates: LlenarFechas(),
                 disableDates: function (date) {
-                    // var dates = $("#national-holidays").data("kendoCalendar").options.dates;
-                    var dates = LlenarFechas();
+                    var dates = $("#national-holidays").data("kendoCalendar").options.dates;
                     if (date && compareDates(date, dates)) {
                         return true;
                     } else {
@@ -42,17 +41,17 @@
             });
 
             function compareDates(date, dates) {
-                for (var i = 0; i < fecha.length; i++) {
-                    if (fecha[i].getDate() == date.getDate() &&
-                        fecha[i].getMonth() == date.getMonth() &&
-                        fecha[i].getYear() == date.getYear()) {
+                for (var i = 0; i < dates.length; i++) {
+                    if (dates[i].getDate() == date.getDate() &&
+                        dates[i].getMonth() == date.getMonth() &&
+                        dates[i].getYear() == date.getYear()) {
                       return true
                     }
                 }
             }
 
             function LlenarFechas(){
-                var fechas = 
+                var fechas = [];
                 $.getJSON( "https://julioguillermodiaz.github.io/CV/ajax/disponibilidades.json", function( data ) {
 		        $.each( data, function( key, val ) { fechas.push(new Date(val)) })
                 return fechas;    
