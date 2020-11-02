@@ -29,6 +29,7 @@
                 dates: [],
                 disableDates: function (date) {
                     var dates = $("#national-holidays").data("kendoCalendar").options.dates;
+                    console.log(dates.length);
                     if (date && compareDates(date, dates)) {
                         return true;
                     } else {
@@ -38,7 +39,7 @@
             });
 
             function compareDates(date, dates) {
-                var fecha = LlenarFechas();                
+                var a = LlenarFechas();                
                 for (var i = 0; i < fecha.length; i++) {
                     if (fecha[i].getDate() == date.getDate() &&
                         fecha[i].getMonth() == date.getMonth() &&
