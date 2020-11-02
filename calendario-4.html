@@ -29,8 +29,7 @@
                 dates: LlenarFechas(),
                 disableDates: function (date) {
                     // var dates = $("#national-holidays").data("kendoCalendar").options.dates;
-                    var dates = LlenarFechas();
-                    
+                    dates = LlenarFechas();
                     console.log(dates.length);
                     if (date && compareDates(date, dates)) {
                         return true;
@@ -51,7 +50,6 @@
             }
 
             function LlenarFechas(){
-                var fechas = [];
                 $.getJSON( "https://julioguillermodiaz.github.io/CV/ajax/disponibilidades.json", function( data ) {
 		        $.each( data, function( key, val ) { fechas.push(new Date(val)) })
                 return fechas;    
