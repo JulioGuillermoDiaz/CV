@@ -32,6 +32,7 @@
                 dates: LlenarFechas(),
                 disableDates: function (date) {
                     var dates = $("#national-holidays").data("kendoCalendar").options.dates;
+                    console.log(dates);
                     if (date && compareDates(date, dates)) {
                         return true;
                     } else {
