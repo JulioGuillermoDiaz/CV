@@ -61,7 +61,7 @@
                 $.getJSON( "https://julioguillermodiaz.github.io/CV/ajax/disponibilidades.json", function( data ) {
 		    //    $.each( data, function( key, val ) { fechas.push(new Date(val)); i ++ });
                 $.each( data, function( key, val ) { fechas.push(val); i ++ });
-                var dates = Array(i);
+                var dates = new Array(i);
                 for (var i = 0 ; i < fechas.length; i ++ ) 
                     { dates[i] = new Date(fechas[i])  }    
 
