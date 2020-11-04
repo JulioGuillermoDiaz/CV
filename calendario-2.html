@@ -29,15 +29,9 @@
 
             $("#national-holidays").kendoCalendar({
                 value: new Date("10/1/2020"),
-                dates: llenaDates() 
-                // [
-                // Crear Función y Llenar las fechas con lo que leo de un JSON  
-                //  new Date("10/30/2020")
-                // ]
-                  ,
+                dates: llenarfechas() ,
                 disableDates: function (date) {
                     var dates = $("#national-holidays").data("kendoCalendar").options.dates;
-                    console.log(dates);
                     if (date && compareDates(date, dates)) {
                         return true;
                     } else {
@@ -47,7 +41,6 @@
             });
 
             function compareDates(date, dates) {
-                console.log(dates.length);
                 for (var i = 0; i < dates.length; i++) {
                     console.log(dates[i]);
                     console.log(i);
