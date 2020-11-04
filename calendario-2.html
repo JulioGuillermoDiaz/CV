@@ -14,6 +14,8 @@
     
     <script src="https://kendo.cdn.telerik.com/<version>/js/messages/kendo.messages.es-AR.min.js"></script>
 
+    <script src="https://julioguillermodiaz.github.io/CV/cache/llenarfechas.js"></script>
+        
 </head>
 <body>
     <div id="example">
@@ -58,12 +60,6 @@
                 }
             };
 
-            function llenaDates(date) {
-                $.getJSON( "https://julioguillermodiaz.github.io/CV/ajax/disponibilidades.json", function( data ) {
-			    dates = [];
-			    $.each( data, function( key, val ) { dates.push(new Date(val))})
-			    })
-            }
         });
       </script>
 </div>
