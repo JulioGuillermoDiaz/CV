@@ -64,10 +64,71 @@
 
 		<script src="https://julioguillermodiaz.github.io/CV/trabajos.js"></script>
 
+		<div class="qr-wrapper">
+			<div class="demo-section">
+				<h3>E-mail</h3>
+				<div id="qrMail"></div>
+			</div>
+			<div class="demo-section">
+				<h3>URL</h3>
+				<div id="qrUrl"></div>
+			</div>
+			<div class="demo-section">
+				<h3>Telephone</h3>
+				<div id="qrTelephone"></div>
+			</div>
+			<div class="demo-section">
+				<h3>Geo Location</h3>
+				<div id="qrGeoLocation"></div>
+			</div>
+		</div>
+
 		<div id="grid"></div>
 		
+
+
 			<script>
 				$(document).ready(function() {
+
+					$("#qrMail").kendoQRCode({
+                value: "mailto:juliogdiaz@protonmail.com",
+                size: 120,
+                color: "#e15613",
+                background: "transparent"
+            });
+
+            $("#qrUrl").kendoQRCode({
+                value: "https://julioguillermodiaz.github.io/CV",
+                errorCorrection: "M",
+                size: 120,
+                border: {
+                    color: "#000000",
+                    width: 5
+                }
+            });
+
+            $("#qrTelephone").kendoQRCode({
+                value: "tel:+54-9-11-31851544",
+                errorCorrection: "Q",
+                size: 120,
+                color: "#67a814",
+                border: {
+                    color: "#67a814",
+                    width: 5
+                }
+            });
+
+            $("#qrGeoLocation").kendoQRCode({
+                value: "geo:-32.9350514,-60.6659227,17",
+                errorCorrection: "H",
+                size: 120,
+                color: "#166a83"
+            });
+        });
+
+
+					
+					
 					$("#grid").kendoGrid({
 						dataSource: {
 							data: trabajos,
@@ -147,24 +208,6 @@
 		  });
 
 		</script>
-		<div class="qr-wrapper">
-			<div class="demo-section">
-				<h3>E-mail</h3>
-				<div id="qrMail"></div>
-			</div>
-			<div class="demo-section">
-				<h3>URL</h3>
-				<div id="qrUrl"></div>
-			</div>
-			<div class="demo-section">
-				<h3>Telephone</h3>
-				<div id="qrTelephone"></div>
-			</div>
-			<div class="demo-section">
-				<h3>Geo Location</h3>
-				<div id="qrGeoLocation"></div>
-			</div>
-		</div>
 
 
 
