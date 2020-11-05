@@ -125,39 +125,7 @@
                 color: "#166a83"
             });
         });
-
-
-					
-					
-					$("#grid").kendoGrid({
-						dataSource: {
-							data: trabajos,
-							schema: {
-								model: {
-									fields: {
-										Anio: { type: "string" },
-										Empresa: { type: "string" },
-										Posicion: { type: "string" }
-									}
-								}
-							},
-							pageSize: 5
-						},
-						height: 200,
-						scrollable: true,
-						sortable: true,
-						filterable: true,
-						pageable: {
-							input: true,
-							numeric: false
-						},
-						columns: [
-							
-							{ field: "Anio", title: "Desde - hasta ", width: "230px" },
-							{ field: "Empresa", title: "Empresa",  width: "130px" },
-							{ field: "Posicion", title: "Posicion", width: "130px" }						]
-					});
-				});
+	
 			</script>
 		
 		
